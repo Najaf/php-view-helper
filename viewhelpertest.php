@@ -57,10 +57,42 @@
       );
     }
 
+    function test_multiple_stylesheet_link_tags() {
+      $this->assertEquals(
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/style.css\" />\n"
+        ."<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/style2.css\" />\n"
+        ."<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/style3.css\" />\n",
+        $this->helper->stylesheet_link_tag( array( 'style', 'style2', 'style3' ) )
+      );
+    }
+
     function test_stylesheet_link_tag_with_media() {
       $this->assertEquals(
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/style.css\" media=\"print\" />\n",
         $this->helper->stylesheet_link_tag( 'style', 'print' )
+      );
+    }
+
+    function test_javascript_include_tag() {
+      $this->assertEquals(
+        "<script type=\"text/javascript\" src=\"/js/script.js\"></script>\n",
+        $this->helper->javascript_include_tag( 'script' )
+      );
+    }
+
+    function test_multiple_javascript_include_tag() {
+      $this->assertEquals(
+        "<script type=\"text/javascript\" src=\"/js/script.js\"></script>\n"
+        ."<script type=\"text/javascript\" src=\"/js/script2.js\"></script>\n"
+        ."<script type=\"text/javascript\" src=\"/js/script3.js\"></script>\n",
+        $this->helper->javascript_include_tag( array( 'script', 'script2', 'script3' ) )
+      );
+    }
+
+    function test_meta_content_type() {
+      $this->assertEquals(
+        "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n",
+        $this->helper->meta_content_type()
       );
     }
   }
