@@ -95,4 +95,11 @@
         $this->helper->meta_content_type()
       );
     }
+
+    function test_meta_keywords() {
+      $this->assertEquals(
+        "<meta name=\"keywords\" content=\"tom, dick, harry\" />\n",
+        $this->helper->meta_keywords( array( 'tom', 'dick', 'harry' ) )
+      );
+    }
   }

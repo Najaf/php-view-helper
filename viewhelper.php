@@ -82,4 +82,11 @@ class ViewHelper {
       'content' => $content_type 
     ));
   }
+
+  function meta_keywords( $keywords ) {
+      return $this->html_tag( 'meta', '', array(
+        'name' => 'keywords',
+        'content' => implode( ', ', $keywords )
+      ));
+  }
 }
